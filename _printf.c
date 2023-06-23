@@ -1,32 +1,34 @@
 #include "main.h"
 #include <stdio.h>
+
 /*
- * printf - print a format string
+ * _printf - print a format string
  * @format: string containing the format of output
- * Return: the number of characters printed (excluding the null byte used to end output to strings)
+ * Return: the number of characters printed
+ * excluding the null byte used to end output to strings
  */
+
 int _printf(const char *format, ...)
 {
 int count = 0;
 va_list args;
-va_start(args , format);
-while (*format)
+va_start(args, format);
+for (char *c = format; *c; c++)
 {
-if (*format == '%')
+if (*c == '%')
 {
-format++;
-switch (*format);
+switch (*c++)
 {
 case 'c':
 {
-char c = va_arg(args, int);
-count += printf("%c", c);
+char ch = va_arg(args, int);
+count += printf("%c", ch);
 break;
 }
 case 's':
 {
-const char *s = va_arg(args, const char *);
-count += printf("%s", s);
+char *str = va_arg(args, char *);
+count += printf("%s", str);
 break;
 }
 case '%':
@@ -42,10 +44,9 @@ break;
 }
 else
 {
-count += printf("%c", *format);
+count += printf("%c", *c);
 }
-format++
 }
 va_end(args);
-return count;
+return (count);
 }
