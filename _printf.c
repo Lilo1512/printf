@@ -1,8 +1,8 @@
 #include "main.h"
 #include <stdio.h>
 
-/*
- * _printf - print a format string
+/**
+ * _printf - Printf function
  * @format: string containing the format of output
  * Return: the number of characters printed
  * excluding the null byte used to end output to strings
