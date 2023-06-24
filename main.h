@@ -40,6 +40,8 @@ int get_reverse(va_list args, char buffer[],
 		int flags, int width, int precision, int size);
 int get_rot13string(va_list args, char buffer[],
 		int flags, int width, int precision, int size);
+int gets_precisions(const char *format, int *x, va_list args);
+
 
 =======
 int gets_sizes(const char *format, int *a);
