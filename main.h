@@ -31,7 +31,7 @@ int print_hexa_upper(va_list type, char buffer[],
 		int flag, int widths, int precisions, int sizes);
 int print_hexa(va_list type, char map_to[], char buffer[],
 		int flag, char flag_ch, int widths, int precisions, int sizes);
-<<<<<<< HEAD
+
 int get_ptr(va_list args, char buffer[],
 		int flags, int width, int precision, int size);
 int get_non_printable(va_list args, char buffer[],
@@ -43,8 +43,7 @@ int get_rot13string(va_list args, char buffer[],
 int gets_precisions(const char *format, int *x, va_list args);
 int git_width(const char *format, int *x, va_list args);
 
-=======
 int gets_sizes(const char *format, int *a);
 int gits_flag(const char *format, int *a);
->>>>>>> 7854ad8d348387fc3421e054824a62e321940824
+
 #endif
