@@ -33,4 +33,5 @@ int print_hexa_upper(va_list type, char buffer[],
 int print_hexa(va_list type, char map_to[], char buffer[],
 		int flag, char flag_ch, int widths, int precisions, int sizes);
 int gets_sizes(const char *format, int *a);
+int gits_flag(const char *format, int *a);
 #endif
