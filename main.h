@@ -45,5 +45,6 @@ int git_width(const char *format, int *x, va_list args);
 
 int gets_sizes(const char *format, int *a);
 int gits_flag(const char *format, int *a);
-
+int handles_prints(const char *ami, int *ent, va_list lists, char buffer[],
+		int flag, int widths, int precisions, int sizes);
 #endif
