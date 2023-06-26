@@ -47,4 +47,16 @@ int gets_sizes(const char *format, int *a);
 int gits_flag(const char *format, int *a);
 int handles_prints(const char *ami, int *ent, va_list lists, char buffer[],
 		int flag, int widths, int precisions, int sizes);
+int writes_pointers(char buffer[], int ent, int lengths,
+		int widths, int flag, char bad, char extra_i, int bad_start);
+int writes_unsgnd(int its_negative, int ent,
+		char buffer[],
+		int flag, int widths, int precisions, int sizes);
+int writes_num(int ent, char buffer[],
+		int flag, int widths, int precisions,
+		int lengths, char bad, char extra_i);
+int writes_numbers(int its_negative, int ent, char buffer[],
+		int flag, int widths, int precisions, int sizes);
+int handles_writes_char(char i, char buffer[],
+		int flag, int widths, int precisions, int sizes);
 #endif
