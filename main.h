@@ -1,5 +1,5 @@
-#ifndef _PRINTF_H
-#define _PRINTF_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdio.h>
@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+<<<<<<< HEAD
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -16,12 +17,19 @@
 #define BUFF_SIZE 1024
 
 
+=======
+#define UNUSED(x) (void)(x)
+#define BUFF_SIZE 1024
+
+/* FLAGS */
+>>>>>>> 1a4503d2b90ea39e846c0759070266e4f3f03ad4
 #define F_MINUS 1
 #define F_PLUS 2
 #define F_ZERO 4
 #define F_HASH 8
 #define F_SPACE 16
 
+<<<<<<< HEAD
 #define S_LONG 2
 #define S_SHORT 1
 
@@ -29,6 +37,35 @@ int gits_flag(const char *format, int *a);
 int git_width(const char *format, int *a, va_list list);
 int get_precisions(const char *format, int *a, va_list list);
 int gets_sizes(const char *format, int *a);
+=======
+/* SIZES */
+#define S_LONG 2
+#define S_SHORT 1
+
+/**
+ * struct fmt - Struct op
+ * @fmt: The format.
+ * @fn: The function associated.
+ */
+
+struct fmt
+{
+	char fmt;
+	int (*fn)(va_list, char[], int, int, int, int);
+};
+
+/**
+ * typedef struct fmt fmt_t - Struct op
+ * @fmt: The format.
+ * @fm_t: The function associated.
+ */
+
+typedef struct fmt fmt_t;
+
+
+
+int _printf(const char *format, ...);
+>>>>>>> 1a4503d2b90ea39e846c0759070266e4f3f03ad4
 
 int _printf(const char *format, ...);
 int handles_prints(const char *ami, int *a,
