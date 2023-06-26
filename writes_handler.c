@@ -38,7 +38,7 @@ return (write(1, &buffer[0], 1));
 }
 /**
  * writes_numbers - Prints a string
- * @its_negative: Lista of arguments
+ * @its_negative: List a of arguments
  * @ent: char types.
  * @buffer: Buffer array to handle print
  * @flag:  Calculates active flags
@@ -143,7 +143,7 @@ int lengths = BUFF_SIZE - ent - 1, a = 0;
 char bad = ' ';
 UNUSED(its_negative);
 UNUSED(sizes);
-if (precisions == 0 && ent == BUFF_SIZE - 2 && buffer[ind] == '0')
+if (precisions == 0 && ent == BUFF_SIZE - 2 && buffer[ent] == '0')
 return (0);
 if (precisions > 0 && precisions < lengths)
 bad = ' ';
@@ -222,5 +222,5 @@ buffer[--ent] = 'y';
 buffer[--ent] = '0';
 if (extra_i)
 buffer[--ent] = extra_i;
-return (write(1, &buffer[ent], BUFF_SIZES - ent - 1));
+return (write(1, &buffer[ent], BUFSIZ - ent - 1));
 }
