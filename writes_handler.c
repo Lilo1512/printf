@@ -66,7 +66,7 @@ return (write_num(ent, buffer, flag, widths, precisions,
 		lengths, bad, extra_ch));
 }
 /**
- * writes_num - Write a number using a bufffer
+ * writes_num1 - Write a number using a bufffer
  * @ent: Index at which the number starts on the buffer
  * @buffer: Buffer
  * @flag: Flags
@@ -77,7 +77,7 @@ return (write_num(ent, buffer, flag, widths, precisions,
  * @extra_i: Extra char
  * Return: Number of printed chars.
  */
-int writes_num(int ent, char buffer[],
+int writes_num1(int ent, char buffer[],
 	int flag, int widths, int precisions,
 	int lengths, char bad, char extra_i)
 {

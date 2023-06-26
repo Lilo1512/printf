@@ -52,7 +52,7 @@ int writes_pointers(char buffer[], int ent, int lengths,
 int writes_unsgnd(int its_negative, int ent,
 		char buffer[],
 		int flag, int widths, int precisions, int sizes);
-int writes_num(int ent, char buffer[],
+int writes_num1(int ent, char buffer[],
 		int flag, int widths, int precisions,
 		int lengths, char bad, char extra_i);
 int writes_numbers(int its_negative, int ent, char buffer[],
