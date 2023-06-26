@@ -18,7 +18,7 @@ int get_ptr(va_list args, char buffer[],
 	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1;
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
-	void *addrs = va_arg(types, void *);
+	void *addrs = va_arg(args, void *);
 
 	UNUSED(width);
 	UNUSED(size);
@@ -47,7 +47,7 @@ int get_ptr(va_list args, char buffer[],
 
 	ind++;
 
-	return (write_pointer(buffer, ind, length,
+	return (writes_pointers(buffer, ind, length,
 				width, flags, padd, extra_c, padd_start));
 }
 
@@ -78,10 +78,10 @@ int get_non_printable(va_list args, char buffer[],
 
 	while (str[i] != '\0')
 	{
-		if (is_printable(str[i]))
+		if (its_printable(str[i]))
 			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_code(str[i], buffer, i + offset);
+			offset += append_hexa(str[i], buffer, i + offset);
 
 
 		i++;
@@ -114,7 +114,7 @@ int get_reverse(va_list args, char buffer[],
 	UNUSED(width);
 	UNUSED(size);
 
-	str = va_arg(types, char *);
+	str = va_arg(args, char *);
 
 	if (str == NULL)
 	{

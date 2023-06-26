@@ -16,7 +16,7 @@ int get_ch(va_list args, char buffer[],
 {
 	char ch = va_arg(args, int);
 
-	return (handle_write_char(ch, buffer, flags, width, precision, size));
+	return (handles_writes_char(ch, buffer, flags, width, precision, size));
 }
 
 /**
@@ -117,12 +117,12 @@ int get_intger(va_list args, char buffer[],
 	long int n = va_arg(args, long int);
 	unsigned long int num;
 
-	n = convert_size_number(n, size);
+	n = convert_size_num(n, size);
 
 	if (n == 0)
 		buffer[i--] = '0';
 
-	buffer[BUF7F_SIZE - 1] = '\0';
+	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
 
 	if (n < 0)
@@ -139,7 +139,7 @@ int get_intger(va_list args, char buffer[],
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (writes_numbers(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /**
