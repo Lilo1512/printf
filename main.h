@@ -59,4 +59,10 @@ int writes_numbers(int its_negative, int ent, char buffer[],
 		int flag, int widths, int precisions, int sizes);
 int handles_writes_char(char i, char buffer[],
 		int flag, int widths, int precisions, int sizes);
+int its_printable(char ch);
+int append_hexa(char ascii, char buffer[], int i);
+int is_digit(char c);
+long int convert_size_num(long int num, int size);
+long int convert_size_unsigned(unsigned long int num, int size);
+
 #endif
