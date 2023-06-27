@@ -87,16 +87,16 @@ int print_hexadecimal(va_list type, char buffer[],
 int print_hexa_upper(va_list type, char buffer[],
 		int flag, int widths, int precisions, int sizes);
 int print_hexa(va_list type, char map_to[], char buffer[],
-		int flag, char flag_ch, int widths, int precisions, int sizes);
+		int flags, char flag_ch, int width, int precision, int size);
 
 int get_ptr(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
+		int flags, int width, int precision, int size);
 int get_non_printable(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
+		int flags, int width, int precision, int size);
 int get_reverse(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
+		int flags, int width, int precision, int size);
 int get_rot13string(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
+		int flags, int width, int precision, int size);
 int gets_precisions(const char *format, int *x, va_list args);
 int git_width(const char *format, int *x, va_list args);
 
@@ -123,6 +123,7 @@ long int convert_size_num(long int num, int size);
 long int convert_size_unsigned(unsigned long int num, int size);
 
 int handles_writes_char(char i, char buffer[], int flag, int widths, int precisions, int sizes);
-int handles_prints(const char *ami, int *ent, va_list args, char buffer[], int flag, int widths, int precisions, int sizes);
+int handles_prints(const char *ami, int *ent, va_list args, char buffer[],
+		int flag, int widths, int precisions, int sizes);
 
 #endif
