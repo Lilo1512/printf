@@ -12,11 +12,11 @@ int _printf(const char *format, ...)
 {
 int a, printed = 0, printed_chars = 0;
 int flag, widths, precisions, sizes, buff_ent = 0;
-va_list list;
+va_list args;
 char buffer[BUFF_SIZE];
 if (format == NULL)
 return (-1);
-va_start(list, format);
+va_start(args, format);
 for (a = 0; format && format[a] != '\0'; a++)
 {
 if (format[a] != '%')
@@ -32,10 +32,10 @@ else
 print_buffer(buffer, &buff_ent);
 flag = gits_flag(format, &a);
 widths = git_width(format, &a, list);
-precisions = gets_precisions(format, &a, list);
+precisions = gets_precisions(format, &a, args);
 sizes = gets_sizes(format, &a);
 ++a;
-printed = handles_prints(format, &a, list, buffer,
+printed = handles_prints(format, &a, args, buffer,
 flag, widths, precisions, sizes);
 if (printed == -1)
 return (-1);
@@ -43,7 +43,7 @@ printed_chars += printed;
 }
 }
 print_buffer(buffer, &buff_ent);
-va_end(list);
+va_end(args);
 return (printed_chars);
 }
 

@@ -17,8 +17,8 @@ int handles_prints(const char *ami, int *ent, va_list args, char buffer[],
 		int flag, int widths, int precisions, int sizes)
 {
 int a, unknow_len = 0, printed_chars = -1;
-if (ami[*ent] == ami_types[a].ami)
-return (ami_types[a].fn(list, buffer, flag, widths, precisions, sizes));
+if (ami[*ent] == ami_types[a:wq].ami)
+return (ami_types[a].fn(args, buffer, flag, widths, precisions, sizes));
 if (ami_types[a].ami == '\0')
 {
 if (ami[*ent] == '\0')
