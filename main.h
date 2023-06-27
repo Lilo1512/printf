@@ -50,7 +50,6 @@ int gets_sizes(const char *format, int *a);
 struct ami
 {
 	char ami;
-	int (*fn)(va_list, char[], int, int, int, int);
 };
 
 /**
@@ -122,5 +121,7 @@ int append_hexa(char ascii, char buffer[], int i);
 int is_digit(char c);
 long int convert_size_num(long int num, int size);
 long int convert_size_unsigned(unsigned long int num, int size);
+
+int handles_writes_char(char i, char buffer[], int flag, int widths, int precisions, int sizes);
 
 #endif

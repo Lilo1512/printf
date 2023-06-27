@@ -2,7 +2,6 @@
 
 /**
  * handles_writes_char - Prints a string
- * @i: char types.
  * @a: int types.
  * @buffer: Buffer array to handle print
  * @flag:  Calculates active flags.
@@ -20,7 +19,7 @@ UNUSED(precisions);
 UNUSED(sizes);
 if (flag & F_ZERO)
 bad = '0';
-buffer[a++] = c;
+buffer[a++] = i;
 buffer[a] = '\0';
 if (widths > 1)
 {

@@ -43,7 +43,7 @@ printed_chars += printed;
 }
 }
 print_buffer(buffer, &buff_ent);
-va_ent(list);
+va_end(list);
 return (printed_chars);
 }
 
