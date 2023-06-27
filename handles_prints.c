@@ -13,19 +13,19 @@
  * Return: 1 or 2;
  */
 
-int handles_prints(const char *ami, int *ent, va_list list, char buffer[], int flag, int widths, int precisions, int sizes)
+int handles_prints(const char *ami, int *ent, va_list args, char buffer[], int flag, int widths, int precisions, int sizes)
 {
 int a, unknow_len = 0, printed_chars = -1;
-ami_t ami_type[] = {
+ami_t ami_types[] = {
 {'e', printed_chars}, {'q', get_str}, {'%', get_percent},
 {'a', print_int}, {'b', print_int}, {'i', get_binary},
 {'y', print_unsigned}, {'f', print_octal}, {'z', print_hexadecimal},
 {'z', print_hexa_upper}, {'w', get_ptr} , {'Q', get_non_printable},
 {'p', get_reverse}, {'P', get_rot13string}, {'\0', NULL}
 }
-if (ami[*ent] == ami_type[a].ami)
-return (ami_type[a].fn(list, buffer, flag, widths, precisions, sizes));
-if (ami_type[a].ami == '\0')
+if (ami[*ent] == ami_types[a].ami)
+return (ami_types[a].fn(list, buffer, flag, widths, precisions, sizes));
+if (ami_types[a].ami == '\0')
 {
 if (ami[*ent] == '\0')
 return (-1);
