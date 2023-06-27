@@ -1,129 +1,35 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <unistd.h>
-#include <limits.h>
 #include <stdlib.h>
 #include <stdarg.h>
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-
-
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-
-
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-/* FLAGS */
-
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-
-#define S_LONG 2
-#define S_SHORT 1
-
-int gits_flag(const char *format, int *a);
-int git_width(const char *format, int *a, va_list list);
-int get_precisions(const char *format, int *a, va_list list);
-int gets_sizes(const char *format, int *a);
-
-/* SIZES */
-#define S_LONG 2
-#define S_SHORT 1
-
 /**
- * struct ami - Struct op
- * @ami: The format.
- * @fn: The function associated.
+ * struct fmt - function to check for formats
+ * @type: The format to print
+ * @f: The print function to use
  */
 
-struct ami
+typedef struct fmt
 {
-	char ami;
-};
-
-/**
- * typedef struct fmt fmt_t - Struct op
- * @ami: The format.
- * @fm_t: The function associated.
- */
-
-typedef struct ami ami_t;
-
-
+	char *type;
+	int (*f)();
+} fmt_t;
 
 int _printf(const char *format, ...);
-
-
-int _printf(const char *format, ...);
-int handles_prints(const char *ami, int *a,
-		va_list args, char buffer[], int flag, int widths, int precisions, int sizes);
-void print_buffer(char buffer[], int *buff_ent);
-int get_ch(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int get_str(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int get_percent(va_list args, char buffer[], int flag, int widths ,int precisions, int sizes);
-int get_intger(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int get_binary(va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int print_unsigned(va_list type, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int print_octal(va_list type, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int print_hexadecimal(va_list type, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int print_hexa_upper(va_list type, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int print_hexa(va_list type, char map_to[], char buffer[],
-		int flags, char flag_ch, int width, int precision, int size);
-
-int get_ptr(va_list args, char buffer[],
-		int flags, int width, int precision, int size);
-int get_non_printable(va_list args, char buffer[],
-		int flags, int width, int precision, int size);
-int get_reverse(va_list args, char buffer[],
-		int flags, int width, int precision, int size);
-int get_rot13string(va_list args, char buffer[],
-		int flags, int width, int precision, int size);
-int gets_precisions(const char *format, int *x, va_list args);
-int git_width(const char *format, int *x, va_list args);
-
-int gets_sizes(const char *format, int *a);
-int gits_flag(const char *format, int *a);
-int handles_prints(const char *ami, int *ent, va_list list, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int writes_pointers(char buffer[], int ent, int lengths,
-		int widths, int flag, char bad, char extra_i, int bad_start);
-int writes_unsgnd(int its_negative, int ent,
-		char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int writes_num1(int ent, char buffer[],
-		int flag, int widths, int precisions,
-		int lengths, char bad, char extra_i);
-int writes_numbers(int its_negative, int ent, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int handles_writes_char(char i, char buffer[],
-		int flag, int widths, int precisions, int sizes);
-int its_printable(char ch);
-int append_hexa(char ascii, char buffer[], int i);
-int is_digit(char c);
-long int convert_size_num(long int num, int size);
-long int convert_size_unsigned(unsigned long int num, int size);
-
-int handles_writes_char(char i, char buffer[], int flag, int widths, int precisions, int sizes);
-int handles_prints(const char *ami, int *ent, va_list args, char buffer[],
-		int flag, int widths, int precisions, int sizes);
+int print_op(const char *format, fmt_t *print_arr, va_list list);
+int ch(va_list character);
+int str(va_list string);
+int _int(va_list integ);
+int _ui(va_list unsign);
+int _oct(va_list octo);
+int _rot13(va_list rot);
+int _hex_str(unsigned int n, unsigned int hex, char alpha);
+int _hex_l(va_list hexa);
+int _hex_u(va_list hexa);
+int _strlen(char *s);
+int _bin(va_list bin);
+int _putchar(char c);
 
 #endif
