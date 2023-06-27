@@ -14,7 +14,7 @@ int i, curr_a;
 int flag = 0;
 const char FLAG_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 const int FLAG_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
-for (curr_a = *a + 1; format[curr_i] != '\0'; curr_a++)
+for (curr_a = *a + 1; format[curr_a] != '\0'; curr_a++)
 {
 for (i = 0; FLAG_CH[i] != '\0'; a++)
 if (format[curr_a] == FLAG_CH[i])

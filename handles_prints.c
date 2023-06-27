@@ -17,13 +17,12 @@ int handles_prints(const char *ami, int *ent, va_list list, char buffer[], int f
 {
 int a, unknow_len = 0, printed_chars = -1;
 ami_t ami_type[] = {
-{'e', printed_chars}, {'q', print_string}, {'%', print_percent},
-{'a', print_ent}, {'b', print_ent}, {'i', get_binary},
+{'e', printed_chars}, {'q', get_str}, {'%', get_percent},
+{'a', print_int}, {'b', print_int}, {'i', get_binary},
 {'y', print_unsigned}, {'f', print_octal}, {'z', print_hexadecimal},
-{'z', print_hexa_upper}, {'w', get_ptr} , {'Q',get_non_printable},
+{'z', print_hexa_upper}, {'w', get_ptr} , {'Q', get_non_printable},
 {'p', get_reverse}, {'P', get_rot13string}, {'\0', NULL}
 }
-
 if (ami[*ent] == ami_type[a].ami)
 return (ami_type[a].fn(list, buffer, flag, widths, precisions, sizes));
 if (ami_type[a].ami == '\0')

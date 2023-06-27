@@ -15,7 +15,7 @@ int flag, int widths, int precisions, int sizes)
 {
 int a = BUFF_SIZE - 2;
 unsigned long int num1 = va_arg(type, unsigned long int);
-num1 = convert_sizes_unsgnd(num1, sizes);
+num1 = convert_size_unsigned(num1, sizes);
 if (num1 == 0)
 buffer[a--] = '0';
 buffer[BUFF_SIZE - 1] = '\0';
@@ -25,7 +25,7 @@ buffer[a--] = (num1 % 10) + '0';
 num1 /= 10;
 }
 a++;
-return (write_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
+return (writes_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
 }
 
 /**
@@ -45,7 +45,7 @@ int a = BUFF_SIZE - 2;
 unsigned long int num1 = va_arg(type, unsigned long int);
 unsigned long int init_num1 = num1;
 UNUSED(widths);
-num1 = convert_sizes_unsgnd(num1, sizes);
+num1 = convert_size_unsigned(num1, sizes);
 if (num1 == 0)
 buffer[a--] = '0';
 buffer[BUFF_SIZE - 1] = '\0';
@@ -57,7 +57,7 @@ num1 /= 8;
 if (flag & F_HASH && init_num1 != 0)
 buffer[a--] = '0';
 a++;
-return (write_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
+return (writes_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
 }
 
 /**
@@ -113,7 +113,7 @@ int a = BUFF_SIZE - 2;
 unsigned long int num1 = va_arg(type, unsigned long int);
 unsigned long int init_num1 = num1;
 UNUSED(widths);
-num = convert_sizes_unsgnd(num1, sizes);
+num1 = convert_size_unsigned(num1, sizes);
 if (num1 == 0)
 buffer[a--] = '0';
 buffer[BUFF_SIZE - 1] = '\0';
@@ -128,5 +128,5 @@ buffer[a--] = flag_ch;
 buffer[a--] = '0';
 }
 a++;
-return (write_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
+return (writes_unsgnd(0, a, buffer, flag, widths, precisions, sizes));
 }
