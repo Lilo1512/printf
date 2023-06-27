@@ -3,7 +3,7 @@
 /**
  * handles_prints - Prints an argument based on its type
  * @ami: Formatted string in which to print the arguments.
- * @lists: List of arguments to be printed.
+ * @list: List of arguments to be printed.
  * @ent: ind.
  * @buffer: Buffer array to handle print.
  * @flag: Calculates active flags
@@ -13,7 +13,7 @@
  * Return: 1 or 2;
  */
 
-int handles_prints(const char *ami, int *ent, va_list lists, char buffer[],
+int handles_prints(const char *ami, int *ent, va_list list, char buffer[],
 int flag, int widths, int precisions, int sizes)
 {
 int a, unknow_len = 0, printed_chars = -1;

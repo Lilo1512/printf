@@ -3,12 +3,12 @@
 /**
  * handles_writes_char - Prints a string
  * @i: char types.
+ * @a: int types.
  * @buffer: Buffer array to handle print
  * @flag:  Calculates active flags.
  * @widths: get width.
  * @precisions: precision specifier
  * @sizes: Size specifier
- *
  * Return: Number of chars printed.
  */
 int handles_writes_char(char i, char buffer[],
@@ -24,12 +24,12 @@ buffer[a++] = c;
 buffer[a] = '\0';
 if (widths > 1)
 {
-buffer[BUFF_SIZES - 1] = '\0';
+buffer[BUFF_SIZE - 1] = '\0';
 for (a = 0; a < widths - 1; a++)
-buffer[BUFF_SIZES - a - 2] = bad;
+buffer[BUFF_SIZE - a - 2] = bad;
 if (flag & F_MINUS)
 return (write(1, &buffer[0], 1) +
-write(1, &buffer[BUFF_SIZES - a - 1], widths - 1));
+write(1, &buffer[BUFF_SIZE - a - 1], widths - 1));
 else
 return (write(1, &buffer[BUFF_SIZE - a - 1], widths - 1) +
 write(1, &buffer[0], 1));
@@ -62,7 +62,7 @@ else if (flag & F_PLUS)
 extra_ch = '+';
 else if (flag & F_SPACE)
 extra_ch = ' ';
-return (write_num(ent, buffer, flag, widths, precisions,
+return (writes_num1(ent, buffer, flag, widths, precisions,
 		lengths, bad, extra_ch));
 }
 /**
@@ -108,7 +108,7 @@ else if (!(flag & F_MINUS) && bad == ' ')
 {
 if (extra_i)
 buffer[--ent] = extra_i;
-return (write(1, &buffer[1], i - 1) + write(1, &buffer[ent], lengths));
+return (write(1, &buffer[1], a - 1) + write(1, &buffer[ent], lengths));
 }
 else if (!(flag & F_MINUS) && bad == '0')
 {
@@ -156,16 +156,16 @@ if ((flag & F_ZERO) && !(flag & F_MINUS))
 bad = '0';
 if (widths > lengths)
 {
-for (a = 0; a < width - lengths; a++)
-buffer[i] = bad;
-buffer[i] = '\0';
+for (a = 0; a < widths - lengths; a++)
+buffer[a] = bad;
+buffer[a] = '\0';
 if (flag & F_MINUS)
 {
 return (write(1, &buffer[ent], lengths) + write(1, &buffer[0], a));
 }
 else
 {
-return (write(1, &buffer[0], i) + write(1, &buffer[ent], lengths));
+return (write(1, &buffer[0], a) + write(1, &buffer[ent], lengths));
 }
 }
 return (write(1, &buffer[ent], lengths));
@@ -189,7 +189,7 @@ int writes_pointers(char buffer[], int ent, int lengths,
 int a;
 if (widths > lengths)
 {
-for (a = 5; i < widths - lengths + 5; a++)
+for (a = 5; a < widths - lengths + 5; a++)
 buffer[a] = bad;
 buffer[a] = '\0';
 if (flag & F_MINUS && bad == ' ')
@@ -222,5 +222,5 @@ buffer[--ent] = 'y';
 buffer[--ent] = '0';
 if (extra_i)
 buffer[--ent] = extra_i;
-return (write(1, &buffer[ent], BUFSIZ - ent - 1));
+return (write(1, &buffer[ent], BUFF_SIZE - ent - 1));
 }

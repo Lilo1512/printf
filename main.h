@@ -42,24 +42,24 @@ int gets_sizes(const char *format, int *a);
 #define S_SHORT 1
 
 /**
- * struct fmt - Struct op
- * @fmt: The format.
+ * struct ami - Struct op
+ * @ami: The format.
  * @fn: The function associated.
  */
 
-struct fmt
+struct ami
 {
-	char fmt;
+	char ami;
 	int (*fn)(va_list, char[], int, int, int, int);
 };
 
 /**
  * typedef struct fmt fmt_t - Struct op
- * @fmt: The format.
+ * @ami: The format.
  * @fm_t: The function associated.
  */
 
-typedef struct fmt fmt_t;
+typedef struct ami ami_t;
 
 
 
@@ -103,7 +103,7 @@ int git_width(const char *format, int *x, va_list args);
 
 int gets_sizes(const char *format, int *a);
 int gits_flag(const char *format, int *a);
-int handles_prints(const char *ami, int *ent, va_list lists, char buffer[],
+int handles_prints(const char *ami, int *ent, va_list list, char buffer[],
 		int flag, int widths, int precisions, int sizes);
 int writes_pointers(char buffer[], int ent, int lengths,
 		int widths, int flag, char bad, char extra_i, int bad_start);
