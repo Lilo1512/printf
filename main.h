@@ -50,6 +50,7 @@ int gets_sizes(const char *format, int *a);
 struct ami
 {
 	char ami;
+	int (*fn)(va_list, char[], int, int, int, int);
 };
 
 /**
