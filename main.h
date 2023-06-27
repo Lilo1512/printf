@@ -67,7 +67,7 @@ int _printf(const char *format, ...);
 
 int _printf(const char *format, ...);
 int handles_prints(const char *ami, int *a,
-		va_list list, char buffer[], int flag, int widths, int precisions, int sizes);
+		va_list args, char buffer[], int flag, int widths, int precisions, int sizes);
 void print_buffer(char buffer[], int *buff_ent);
 int get_ch(va_list args, char buffer[],
 		int flag, int widths, int precisions, int sizes);
