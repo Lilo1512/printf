@@ -13,28 +13,9 @@
 
 typedef struct fmt
 {
-<<<<<<< HEAD
 	char *type;
 	int (*f)();
 } fmt_t;
-=======
-	char ami;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
-
-/**
- * typedef struct fmt fmt_t - Struct op
- * @ami: The format.
- * @fm_t: The function associated.
- */
-
-typedef struct ami ami_t;
-
-
-
-int _printf(const char *format, ...);
-
->>>>>>> 11e7ffa224a470f02b516321b0dafdb9177ae5fc
 
 int _printf(const char *format, ...);
 int print_op(const char *format, fmt_t *print_arr, va_list list);
