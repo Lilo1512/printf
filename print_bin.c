@@ -9,31 +9,31 @@
 int _bin(va_list bin)
 {
 	int count = 0, i;
-	int *arr;
-	unsigned int n = va_arg(bin, unsigned int);
+	int *array;
+	unsigned int j = va_arg(bin, unsigned int);
 	unsigned int tmp = n;
 
-	while (n / 2 != 0)
+	while (j / 2 != 0)
 	{
-		n /= 2;
+		j /= 2;
 		count++;
 	}
 	count++;
-	arr = malloc(count * sizeof(int));
-	if (arr == NULL)
+	array = malloc(count * sizeof(int));
+	if (array == NULL)
 	{
-		free(arr);
+		free(array);
 		return (0);
 	}
 	for (i = 0; i < count; i++)
 	{
-		arr[i] = tmp % 2;
+		array[i] = tmp % 2;
 		tmp /= 2;
 	}
 	for (i = count - 1; i >= 0; i--)
 	{
-		_putchar(arr[i] + '0');
+		_putchar(array[i] + '0');
 	}
-	free(arr);
+	free(array);
 	return (count);
 }
