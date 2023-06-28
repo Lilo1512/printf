@@ -24,7 +24,7 @@ int _hex_str(unsigned int m, unsigned int hex, char alpha)
 	if (y < hex)
 	{
 		if (y > 10)
-			return (_putchar(b - 10 + alpha) + _putchar(c));
+			return (_putchar(y - 10 + alpha) + _putchar(c));
 		return (_putchar(y + '0') + _putchar(c));
 	}
 	return (_hex_str(y, hex, alpha) + _putchar(c));

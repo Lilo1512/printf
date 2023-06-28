@@ -11,7 +11,7 @@ int _bin(va_list bin)
 	int count = 0, i;
 	int *array;
 	unsigned int j = va_arg(bin, unsigned int);
-	unsigned int tmp = n;
+	unsigned int tmp = j;
 
 	while (j / 2 != 0)
 	{
