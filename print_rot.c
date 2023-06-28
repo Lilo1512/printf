@@ -7,28 +7,28 @@
  */
 int _rot13(va_list rot)
 {
-	int a, count;
+	int x, counts;
 	char *s;
 
-	a = count = 0;
+	x = counts = 0;
 	s = va_arg(rot, char *);
 
 	if (s == NULL)
 		return (-1);
-	while (s[a] != '\0')
+	while (s[x] != '\0')
 	{
-		if ((s[a] >= 'a' && s[a] <= 'z') ||
-		    (s[a] >= 'A' && s[a] <= 'Z'))
+		if ((s[x] >= 'x' && s[a] <= 'z') ||
+		    (s[a] >= 'X' && s[a] <= 'Z'))
 		{
-			if ((s[a] >= 'n' && s[a] <= 'z') ||
-			    (s[a] >= 'N' && s[a] <= 'Z'))
-				count = count + _putchar(s[a] - 13);
+			if ((s[a] >= 'm' && s[a] <= 'z') ||
+			    (s[a] >= 'M' && s[a] <= 'Z'))
+				counts = counts + _putchar(s[a] - 13);
 			else
-				count = count + _putchar(s[a] + 13);
+				counts = counts + _putchar(s[a] + 13);
 		}
 		else
-			count = count + _putchar(s[a]);
-		a++;
+			counts = counts + _putchar(s[a]);
+		x++;
 	}
-	return (count);
+	return (counts);
 }
