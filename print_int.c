@@ -7,25 +7,25 @@
  */
 int _int(va_list integ)
 {
-	int a, expo = 1, len = 0;
-	unsigned int n;
+	int x, expo = 1, len = 0;
+	unsigned int m;
 
-	a = va_arg(integ, int);
+	x = va_arg(integ, int);
 
-	if (a < 0)
+	if (x < 0)
 	{
 		len = len + _putchar('-');
-		n = a * -1;
+		m = x * -1;
 	}
 	else
-		n = a;
-	while (n / expo > 9)
+		m = x;
+	while (m / expo > 9)
 		expo *= 10;
 
 	while (expo != 0)
 	{
-		len = len + _putchar(n / expo + '0');
-		n = n % expo;
+		len = len + _putchar(m / expo + '0');
+		m = m % expo;
 		expo = expo / 10;
 	}
 	return (len);

@@ -7,18 +7,18 @@
  */
 int _ui(va_list unsign)
 {
-	unsigned int n;
+	unsigned int m;
 	int expo = 1;
 	int len = 0;
 
-	n = va_arg(unsign, unsigned int);
+	m = va_arg(unsign, unsigned int);
 
-	while (n / expo > 9)
+	while (m / expo > 9)
 		expo *= 10;
 	while (expo != 0)
 	{
-		len = len + _putchar(n / expo + '0');
-		n = n % expo;
+		len = len + _putchar(m / expo + '0');
+		m = m % expo;
 		expo = expo / 10;
 	}
 	return (len);
