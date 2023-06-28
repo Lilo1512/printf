@@ -17,17 +17,17 @@ int _rot13(va_list rot)
 		return (-1);
 	while (s[x] != '\0')
 	{
-		if ((s[x] >= 'x' && s[a] <= 'z') ||
-		    (s[a] >= 'X' && s[a] <= 'Z'))
+		if ((s[x] >= 'x' && s[x] <= 'z') ||
+		    (s[x] >= 'X' && s[x] <= 'Z'))
 		{
-			if ((s[a] >= 'm' && s[a] <= 'z') ||
-			    (s[a] >= 'M' && s[a] <= 'Z'))
-				counts = counts + _putchar(s[a] - 13);
+			if ((s[x] >= 'm' && s[x] <= 'z') ||
+			    (s[x] >= 'M' && s[x] <= 'Z'))
+				counts = counts + _putchar(s[x] - 13);
 			else
-				counts = counts + _putchar(s[a] + 13);
+				counts = counts + _putchar(s[x] + 13);
 		}
 		else
-			counts = counts + _putchar(s[a]);
+			counts = counts + _putchar(s[x]);
 		x++;
 	}
 	return (counts);

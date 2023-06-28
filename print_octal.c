@@ -15,9 +15,9 @@ int _oct(va_list octo)
 	while (m / 8 != 0)
 	{
 		m /= 8;
-		count++;
+		counts++;
 	}
-	count++;
+	counts++;
 	array = malloc(counts * sizeof(int));
 	for (i = 0; i < counts; i++)
 	{
@@ -26,7 +26,7 @@ int _oct(va_list octo)
 	}
 	for (i = counts - 1; i >= 0; i--)
 	{
-		_putchar(arr[i] + '0');
+		_putchar(array[i] + '0');
 	}
 	free(array);
 	return (counts);
