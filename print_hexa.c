@@ -2,32 +2,32 @@
 
 /**
  * _hex_str - converts the number from base 10 to hex
- * @n: number to be converted
+ * @m: number to be converted
  * @hex: base of 16 being passed
  * @alpha: Char 'A' to 'F' or 'a' to 'f'
  * Return: number of chars printed
  */
-int _hex_str(unsigned int n, unsigned int hex, char alpha)
+int _hex_str(unsigned int m, unsigned int hex, char alpha)
 {
-	unsigned int a = n % hex;
-	unsigned int b = n / hex;
+	unsigned int x = m % hex;
+	unsigned int y = m / hex;
 	char c;
 
-	if (a > 10)
-		c = (a - 10) + alpha;
+	if (x > 10)
+		c = (x - 10) + alpha;
 	else
-		c = a + '0';
-	if (b == 0)
+		c = x + '0';
+	if (y == 0)
 	{
 		return (_putchar(c));
 	}
-	if (b < hex)
+	if (y < hex)
 	{
-		if (b > 10)
+		if (y > 10)
 			return (_putchar(b - 10 + alpha) + _putchar(c));
-		return (_putchar(b + '0') + _putchar(c));
+		return (_putchar(y + '0') + _putchar(c));
 	}
-	return (_hex_str(b, hex, alpha) + _putchar(c));
+	return (_hex_str(y, hex, alpha) + _putchar(c));
 }
 
 /**
@@ -37,7 +37,7 @@ int _hex_str(unsigned int n, unsigned int hex, char alpha)
  */
 int _hex_l(va_list hexa)
 {
-	return (_hex_str(va_arg(hexa, unsigned int), 16, 'a'));
+	return (_hex_str(va_arg(hexa, unsigned int), 16, 'x'));
 }
 
 /**
@@ -47,5 +47,5 @@ int _hex_l(va_list hexa)
  */
 int _hex_u(va_list hexa)
 {
-	return (_hex_str(va_arg(hexa, unsigned int), 16, 'A'));
+	return (_hex_str(va_arg(hexa, unsigned int), 16, 'X'));
 }
