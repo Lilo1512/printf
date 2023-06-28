@@ -7,8 +7,8 @@
  */
 int _oct(va_list octo)
 {
-	int count = 0, i;
-	int *arr;
+	int counts = 0, i;
+	int *srr;
 	unsigned int n = va_arg(octo, unsigned int);
 	unsigned int tmp = n;
 
@@ -18,16 +18,16 @@ int _oct(va_list octo)
 		count++;
 	}
 	count++;
-	arr = malloc(count * sizeof(int));
-	for (i = 0; i < count; i++)
+	srr = malloc(counts * sizeof(int));
+	for (i = 0; i < counts; i++)
 	{
-		arr[i] = tmp % 8;
+		srr[i] = tmp % 8;
 		tmp /= 8;
 	}
-	for (i = count - 1; i >= 0; i--)
+	for (i = counts - 1; i >= 0; i--)
 	{
 		_putchar(arr[i] + '0');
 	}
-	free(arr);
-	return (count);
+	free(srr);
+	return (counts);
 }
